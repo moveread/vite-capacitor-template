@@ -4,8 +4,11 @@ set dotenv-load := true
 init:
   yarn run build
   npx cap sync
-  rm -dr android
+  [ -d android ] && rm -dr android
   npx cap add android
+  just android-build
+  just android
+
 
 # Shortcut for yarn dev --host
 dev PORT="$PORT":
@@ -18,7 +21,7 @@ preview:
   yarn preview --host
 
 # Build android app, connect to phone and install app there
-android: android-build connect install run
+android: connect install run
 
 # Build android appp
 android-build:

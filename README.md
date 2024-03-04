@@ -30,10 +30,9 @@ You don't need anything on WSL as android-specific commands will actually run on
    - [Installation instructions](https://cheatography.com/linux-china/cheat-sheets/justfile/)
    - TL; DR: simplest are `cargo install just` or `yarn add --dev just-install` (then run `npx just`)
 2. Run `yarn` / `npm install` (if not done already)
-3. Run `just init`
-4. Find out your PC's LAN IP address (e.g running `powershell.exe ipconfig`) and copy it onto `LAN_IP` in `.env` 
-5. On your phone, open `Developer Options` (have you [enabled them](https://developer.android.com/studio/debug/dev-options#enable)?), `Wireless debugging`, 
-6. Copy the `IP address & Port` (e.g `192.168.1.133:38653`) onto the `PHONE_URL` variable in `.env`
+3. Find out your PC's LAN IP address (e.g running `powershell.exe ipconfig`) and copy it onto `LAN_IP` in `.env` 
+4. On your phone, open `Developer Options` (have you [enabled them](https://developer.android.com/studio/debug/dev-options#enable)?), `Wireless debugging`, 
+5. Copy the `IP address & Port` (e.g `192.168.1.133:38653`) onto the `PHONE_URL` variable in `.env`
 7. Open `Pair device with pairing code` and copy `IP address & Port` (yes, different to the one above) and run:
    
     ```bash
@@ -49,14 +48,26 @@ You don't need anything on WSL as android-specific commands will actually run on
 
     If it fails, you can try `just restart` and then retry. Good luck! ;)
 
-8. Run `just android`, which will:
-   1. Connect to the phone
-   2. Build the android app
-   3. Install the app on your phone (you'll be prompted to accept it)
-   4. Run the app
-   5. Start `yarn --dev host`
+8. Run `just init`, which will:
+   1. Build the app
+   2. Connect to the phone
+   3. Build the android app
+   4. Install the app on your phone (you'll be prompted to accept it)
+   5. Run the app
+   6. Start `yarn --dev host`
 
 At this point, you can try making changes to your app. They should be quickly visible from you phone! 
+
+### Notes
+
+- Reading the [CapacitorJS docs](https://capacitorjs.com/docs/getting-started) would do you no harm. Short and sweet and help you understand all of this
+- **If you change settings, run** after `just init`, run `npx cap sync` before proceeding
+- To start when already set up:
+    ```bash
+    just android
+    ```
+
+
 
 ## Vite README
 ### React + TypeScript + Vite

@@ -30,7 +30,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "fs": "^0.0.1-security",
-    "just-install": "^2.0.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.4"
   }
