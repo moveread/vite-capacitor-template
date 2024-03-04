@@ -19,10 +19,11 @@ You don't need anything on WSL as android-specific commands will actually run on
 
 
 ## Configuration (.env)
-- `{{APP_NAME}}`: Android app name
-- `{{APP_ID}}`: e.g `com.mydomain.app`
-- `{{LAN_IP}}` e.g. `192.168.1.x`
-- `{{PORT}}` defaults to `5173`
+- `APP_NAME`: Android app name
+- `APP_ID`: e.g `com.mydomain.app`
+- `PC_LAN_IP` e.g. `192.168.1.x`
+- `PHONE_URL` (continue reading for details)
+- `PORT` defaults to `5173`
 
 ## Usage (Justfile)
 
@@ -30,13 +31,13 @@ You don't need anything on WSL as android-specific commands will actually run on
    - [Installation instructions](https://cheatography.com/linux-china/cheat-sheets/justfile/)
    - TL; DR: simplest are `cargo install just` or `yarn add --dev just-install` (then run `npx just`)
 2. Run `yarn` / `npm install` (if not done already)
-3. Find out your PC's LAN IP address (e.g running `powershell.exe ipconfig`) and copy it onto `LAN_IP` in `.env` 
+3. Find out your PC's LAN IP address (e.g running `powershell.exe ipconfig`) and copy it onto `PC_LAN_IP` in `.env` 
 4. On your phone, open `Developer Options` (have you [enabled them](https://developer.android.com/studio/debug/dev-options#enable)?), `Wireless debugging`, 
 5. Copy the `IP address & Port` (e.g `192.168.1.133:38653`) onto the `PHONE_URL` variable in `.env`
 7. Open `Pair device with pairing code` and copy `IP address & Port` (yes, different to the one above) and run:
    
     ```bash
-    just pair 192.168.1.133:40613
+    just pair 192.168.1.133:40613 # the pairing IP address & Port:
     ```
 
     and enter the `Wi-Fi pairing code`

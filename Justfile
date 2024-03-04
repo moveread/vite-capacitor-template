@@ -4,7 +4,7 @@ set dotenv-load := true
 init:
   yarn run build
   npx cap sync
-  [ -d android ] && rm -dr android
+  [ -d android ] && rm -dr android || :
   npx cap add android
   just android-build
   just android
