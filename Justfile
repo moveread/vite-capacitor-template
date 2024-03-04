@@ -7,7 +7,7 @@ init: config
   npx cap sync
   [ -d android ] && rm -dr android || :
   npx cap add android
-  @ echo "You're all set! Run 'just start' to build and install on your phone"
+  @ echo "You're all set! Run 'just start' to build the android app and install on your phone"
 
 # Set .env file
 config:

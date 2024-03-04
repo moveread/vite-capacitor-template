@@ -17,50 +17,48 @@ You don't need anything on WSL as android-specific commands will actually run on
 
 - Enable `Developer Options` on your phone, with `Wireless debugging`. Refer to the [google docs](https://developer.android.com/tools/adb#wireless-android11-command-line)
 
-## Usage (Justfile)
+## Usage
 
-1. Install [`just`](https://github.com/casey/just?tab=readme-ov-file) ([cheatsheet](https://cheatography.com/linux-china/cheat-sheets/justfile/))
-   - [Installation instructions](https://cheatography.com/linux-china/cheat-sheets/justfile/)
-   - TL; DR: simplest are `cargo install just` or `yarn add --dev just-install` (then run `npx just`)
-2. Run `yarn` / `npm install` (if not done already)
-3. Find out your PC's LAN IP address (e.g running `powershell.exe ipconfig`) and copy it onto `PC_LAN_IP` in `.env` 
-4. On your phone, open `Developer Options` (have you [enabled them](https://developer.android.com/studio/debug/dev-options#enable)?), `Wireless debugging`, 
-5. Copy the `IP address & Port` (e.g `192.168.1.133:38653`) onto the `PHONE_URL` variable in `.env`
-7. Open `Pair device with pairing code` and copy `IP address & Port` (yes, different to the one above) and run:
-   
-    ```bash
-    just pair 192.168.1.133:40613 # the pairing IP address & Port:
-    ```
+1. Install [`just`](https://github.com/casey/just?tab=readme-ov-file) (if not done yet - see details below)
+2. Pair your phone to `adb` (if not done yet - details below)
+3. Run `just`
 
-    and enter the `Wi-Fi pairing code`
+### Installing `just`
+- The simplest options are 
+  - `cargo install just`, or
+  - `yarn add --dev just-install` (but then you'll have to use `npx just` instead of `just`)
+- For more options, read the [installation instructions](https://cheatography.com/linux-china/cheat-sheets/justfile/)
+- For a quick overview, you can read this [cheatsheet](https://cheatography.com/linux-china/cheat-sheets/justfile/)
 
-    After some seconds (say, 15), you should see something like:
-    ```bash
-    Successfully paired to 192.168.1.133:40613 [guid=adb-ac5asfad2-jag54t]
-    ```
+### Pairing phone to `adb`
 
-    If it fails, you can try `just restart` and then retry. Good luck! ;)
+On your phone, open `Developer Options`, `Wireless debugging`, `Pair device with pairing code` and copy `IP address & Port`. Run:
 
-8. Run `just init`, which will:
-   1. Build the app
-   2. Connect to the phone
-   3. Build the android app
-   4. Install the app on your phone (you'll be prompted to accept it)
-   5. Run the app
-   6. Start `yarn --dev host`
+  ```
+  just pair 192.168.1.133:40613 # the pairing IP address & Port:
+  ```
 
-At this point, you can try making changes to your app. They should be quickly visible from you phone! 
+  and enter the `Wi-Fi pairing code`
+
+  After some seconds (say, 5 to 15), you should see something like:
+
+  ```bash
+  Successfully paired to 192.168.1.133:40613 [guid=adb-ac5asfad2-jag54t]
+  ```
+
+  If it fails, you can try `just restart` and then retry. Good luck! ;)
 
 ## Notes
 
 - Reading the [CapacitorJS docs](https://capacitorjs.com/docs/getting-started) would do you no harm. Short and sweet and help you understand all of this
-- **If you change settings, run** after `just init`, run `npx cap sync` before proceeding
-- To start when already set up:
+- **If you change settings** after `just init`, run `npx cap sync` before proceeding
+- To start when the android app is already build:
     ```bash
     just android
     ```
 
 ## Configuration (.env)
+These settings are created when running `just` / `just init` / `just config`, or you can edit them manually:
 - `APP_NAME`: Android app name
 - `APP_ID`: e.g `com.mydomain.app`
 - `PC_LAN_IP` e.g. `192.168.1.x`
