@@ -12,13 +12,13 @@ init: config
 # Set .env file
 config:
   @ echo "App name? (defaults to 'My App')" && read app_name && \
-    echo "App id? (defaults to 'com.my.app')" && read app_id && \
+    echo "App id? (defaults to 'com.capacitor-vite.app')" && read app_id && \
     echo "PC LAN IP? (Enter to skip and set later, defaults to 192.168.1.128)" && read lan_ip && \
     echo "Phone LAN IP? [You can get it on 'Developer Options, Wireless Debugging', defaults to 192.168.1.133]" && read phone_ip && \
     echo "Phone Port? [You can get it on 'Developer Options, Wireless Debugging']" && read port && \
     echo 'PORT="5173"' > .env && \
     echo "APP_NAME=\"${app_name:-My App}\"" >> .env && \
-    echo "APP_ID=\"${app_id:-com.my.app}\"" >> .env && \
+    echo "APP_ID=\"${app_id:-com.capacitor-vite.app}\"" >> .env && \
     echo "PC_LAN_IP=\"${lan_ip:-192.168.1.128}\"" >> .env && \
     echo "PHONE_URL=\"${phone_ip:-192.168.1.133}:${port:-6969}\"" >> .env
 
