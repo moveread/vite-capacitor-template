@@ -31,9 +31,10 @@ You don't need anything on WSL as android-specific commands will actually run on
    - TL; DR: simplest are `cargo install just` or `yarn add --dev just-install` (then run `npx just`)
 2. Run `yarn` / `npm install` (if not done already)
 3. Run `just init`
-4. On your phone, open `Developer Options` (have you [enabled them](https://developer.android.com/studio/debug/dev-options#enable)?), `Wireless debugging`, 
-5. Copy the `IP address & Port` (e.g `192.168.1.133:38653`) onto the `PHONE_URL` variable in `.env`
-6. Open `Pair device with pairing code` and copy `IP address & Port` (yes, different to the one above) and run:
+4. Find out your PC's LAN IP address (e.g running `powershell.exe ipconfig`) and copy it onto `LAN_IP` in `.env` 
+5. On your phone, open `Developer Options` (have you [enabled them](https://developer.android.com/studio/debug/dev-options#enable)?), `Wireless debugging`, 
+6. Copy the `IP address & Port` (e.g `192.168.1.133:38653`) onto the `PHONE_URL` variable in `.env`
+7. Open `Pair device with pairing code` and copy `IP address & Port` (yes, different to the one above) and run:
    
     ```bash
     just pair 192.168.1.133:40613
@@ -48,7 +49,7 @@ You don't need anything on WSL as android-specific commands will actually run on
 
     If it fails, you can try `just restart` and then retry. Good luck! ;)
 
-1. Run `just android`, which will:
+8. Run `just android`, which will:
    1. Connect to the phone
    2. Build the android app
    3. Install the app on your phone (you'll be prompted to accept it)
