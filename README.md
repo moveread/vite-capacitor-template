@@ -17,14 +17,6 @@ You don't need anything on WSL as android-specific commands will actually run on
 
 - Enable `Developer Options` on your phone, with `Wireless debugging`. Refer to the [google docs](https://developer.android.com/tools/adb#wireless-android11-command-line)
 
-
-## Configuration (.env)
-- `APP_NAME`: Android app name
-- `APP_ID`: e.g `com.mydomain.app`
-- `PC_LAN_IP` e.g. `192.168.1.x`
-- `PHONE_URL` (continue reading for details)
-- `PORT` defaults to `5173`
-
 ## Usage (Justfile)
 
 1. Install [`just`](https://github.com/casey/just?tab=readme-ov-file) ([cheatsheet](https://cheatography.com/linux-china/cheat-sheets/justfile/))
@@ -59,7 +51,7 @@ You don't need anything on WSL as android-specific commands will actually run on
 
 At this point, you can try making changes to your app. They should be quickly visible from you phone! 
 
-### Notes
+## Notes
 
 - Reading the [CapacitorJS docs](https://capacitorjs.com/docs/getting-started) would do you no harm. Short and sweet and help you understand all of this
 - **If you change settings, run** after `just init`, run `npx cap sync` before proceeding
@@ -68,6 +60,12 @@ At this point, you can try making changes to your app. They should be quickly vi
     just android
     ```
 
+## Configuration (.env)
+- `APP_NAME`: Android app name
+- `APP_ID`: e.g `com.mydomain.app`
+- `PC_LAN_IP` e.g. `192.168.1.x`
+- `PHONE_URL` (continue reading for details)
+- `PORT` defaults to `5173`
 
 
 ## Vite README
