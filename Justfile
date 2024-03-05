@@ -1,7 +1,9 @@
 set dotenv-load := true
 
+default: config init
+
 # Initialize android project
-init: config
+init:
   yarn
   yarn run build
   npx cap sync
